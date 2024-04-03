@@ -5,7 +5,14 @@
 ![GitHub forks](https://img.shields.io/github/forks/4IceG/luci-app-modemband?style=flat-square)
 ![GitHub All Releases](https://img.shields.io/github/downloads/4IceG/luci-app-modemband/total)
 
-Luci-app-modemband is a My GUI for https://eko.one.pl/?p=openwrt-modemband. A program to set LTE bands for selected 4G modems.
+Luci-app-modemband is a My GUI for https://eko.one.pl/?p=openwrt-modemband. A program to set LTE/5G bands for selected 4G/5G modems.
+
+### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> What You Should Know / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Co powinieneś wiedzieć
+> My package will not work if you are using ModemManager.   
+> Preferred version OpenWrt >= 21.02.
+
+> Mój pakiet nie będzie działać jeżeli uzywasz ModemManager-a.   
+> Preferowana wersja OpenWrt >= 21.02.
 
 ``` bash
 Supported devices:
@@ -28,11 +35,21 @@ Supported devices:
 - Quectel EC20
 - Quectel EC25
 - Quectel EG06-E
+- Quectel EG18-EA
 - Quectel EM12-G
 - Quectel EM160R-GL
 - Quectel EP06-E
+- Quectel RG500Q-EA
 - Quectel RG502Q-EA
+- Quectel RM500Q-GL
+- Quectel RM500U-CNV
+- Quectel RM502Q-AE
+- Quectel RM502Q-GL
+- Quectel RM505Q-AE
 - Quectel RM520N-GL
+- Sierra Wireless EM7455/MC7455/DW5811e
+- SIMCOM SIM8200EA-M2
+- Telit LM940
 - Telit LN940 (Foxconn T77W676)
 - Telit LN940 (Foxconn T77W676) in mbim mode
 - Telit LN960 (Foxconn T77W968)
@@ -41,7 +58,7 @@ Supported devices:
 - ZTE MF286A (router)
 - ZTE MF286D (router)
 - ZTE MF286R (router)
-- ZTE MF289F (router)
+- ZTE MF289R (router)
 
 ```
 
@@ -54,13 +71,10 @@ Send PR/mail with description:
 - an AT command to set specific bands
 - a list of all bands that can be set on the modem
 
-### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> What You Should Know / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Co powinieneś wiedzieć
-> My package will not work if you are using ModemManager.
-
-> Mój pakiet nie będzie działać jeżeli uzywasz ModemManager-a.
-
-
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Installation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Instalacja
+
+<details>
+   <summary>Pokaż | Show me</summary>
 
 #### Package dependencies for conventional modems.
 Modem drivers are required for proper operation.
@@ -136,8 +150,14 @@ opkg install luci-app-modemband
 ```
 For images downloaded from eko.one.pl.
 Installation procedure is similar, only there is no need to manually download the sms-tool package.
+  
+</details>
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> User compilation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Kompilacja przez użytkownika
+
+<details>
+   <summary>Pokaż | Show me</summary>
+
 ``` bash
 #The package can be added to Openwrt sources in two ways:
 
@@ -163,21 +183,29 @@ packages/luci-app-modemband/Makefile
 Then you can compile the packages one by one, an example command:
 make V=s -j1 feeds/luci/applications/luci-app-modemband/compile
 ```
-
+</details>
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Preview / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Podgląd
 
-> "Preferred bands" window / Okno "Preferowane pasma":
+> "Preferred LTE bands" window / Okno "Preferowane pasma LTE":
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/mb1.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/modemband/luci-app-modemband_lam.png?raw=true)
+
+> "Preferred 5G SA bands" window / Okno "Preferowane pasma 5G SA":
+
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/modemband/luci-app-modemband_lbm.png?raw=true)
+
+> "Preferred 5G NSA bands" window / Okno "Preferowane pasma 5G NSA":
+
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/modemband/luci-app-modemband_lcm.png?raw=true)
 
 > "Configuration" window / Okno "Konfiguracji":
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/mb2.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/modemband/luci-app-modemband_dm.png?raw=true)
 
 > "Modem settings template" window / Okno "Szablon ustawień modemu":
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/mb3.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/modemband/luci-app-modemband_em.png?raw=true)
 
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Thanks to / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Podziękowania dla
